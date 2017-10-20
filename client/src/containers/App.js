@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchFighters } from "../actions/fighterActions";
 import ItemGrid from '../components/ItemGrid';
 
 class App extends React.Component {
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch(fetchFighters());
+
+    }
     render() {
+
         const { isFetching, fighters } = this.props;
         return (
             <div>
