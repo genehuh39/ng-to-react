@@ -10,5 +10,5 @@ const loggerMiddleware = createLogger();
 export default createStore(
     fighter,
     {},
-    applyMiddleware(loggerMiddleware,thunkMiddleware)
+    applyMiddleware(loggerMiddleware, thunkMiddleware)
 );
