@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemRow from './ItemRow';
 
 const ItemGrid = props => {
     return (
@@ -23,16 +24,7 @@ const ItemGrid = props => {
                 </thead>
                 <tbody>
                     {props.fighters.map((fighter, index) => {
-                        return (
-                            <tr key={fighter.lastName + index}>
-                                <td>{fighter.firstName}</td>
-                                <td>{fighter.lastName}</td>
-                                <td>{fighter.weight}</td>
-                                <td>{fighter.description}</td>
-                                <td />
-                                <td />
-                            </tr>
-                        );
+                        return <ItemRow fighter={fighter} key={fighter.id} />
                     })}
                 </tbody>
             </table>
