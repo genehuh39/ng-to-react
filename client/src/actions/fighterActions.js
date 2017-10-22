@@ -21,6 +21,13 @@ export function addFighter(fighter) {
     };
 }
 
+export function deleteFighter(id) {
+    return {
+        type: "DELETE_FIGHTER",
+        payload: id
+    };
+}
+
 export function fetchFighters() {
 
     return dispatch => {

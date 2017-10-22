@@ -1,14 +1,15 @@
 import React from 'react';
+import ItemButtonBar from './ItemButtonBar';
 
-const ItemRow = ({ fighter, id }) => {
+const ItemRow = (props) => {
     return (
-        <tr key={id}>
-            <td>{fighter.firstName}</td>
-            <td>{fighter.lastName}</td>
-            <td>{fighter.weight}</td>
-            <td>{fighter.description}</td>
+        <tr key={props.id}>
+            <td>{props.fighter.firstName}</td>
+            <td>{props.fighter.lastName}</td>
+            <td>{props.fighter.weight}</td>
+            <td>{props.fighter.description}</td>
             <td />
-            <td />
+            <td><ItemButtonBar {...props} /></td>
         </tr>
     )
 };

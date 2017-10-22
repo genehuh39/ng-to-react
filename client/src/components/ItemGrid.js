@@ -24,7 +24,7 @@ const ItemGrid = props => {
                 </thead>
                 <tbody>
                     {props.fighters.map((fighter, index) => {
-                        return <ItemRow fighter={fighter} key={fighter.id} />
+                        return <ItemRow key={fighter.id} fighter={fighter} {...props} />
                     })}
                 </tbody>
             </table>
