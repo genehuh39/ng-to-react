@@ -1,23 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { deleteFighter, fetchFighters } from "../actions/fighterActions";
+import * as FighterActionCreators from '../actions/fighterActions';
 import ItemGrid from '../components/ItemGrid';
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.selectFighter = this.selectFighter.bind(this);
-        this.deleteFighter = this.deleteFighter.bind(this);
+    constructor(props) {
+        super(props);
+        const { dispatch } = props;
+        this.boundActionCreators = bindActionCreators(FighterActionCreators, dispatch);
     }
     componentDidMount() {
-        this.props.fetchFighters();
-    }
-    selectFighter(id) {
+        const { dispatch } = this.props;
+        const action = FighterActionCreators.fetchFighters();
+        dispatch(action);
 
-    }
-    deleteFighter(id) {
-        this.props.deleteFighter(id);
     }
     render() {
         const { isFetching, fighters } = this.props;
@@ -28,8 +26,7 @@ class App extends React.Component {
                 {!isFetching && fighters.length > 0 &&
                     <ItemGrid
                         fighters={fighters}
-                        selectFighter={this.selectFighter}
-                        deleteFighter={this.deleteFighter} />
+                        {...this.boundActionCreators} />
                 }
             </div>
         );
@@ -43,15 +40,4 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchFighters() {
-            dispatch(fetchFighters());
-        },
-        deleteFighter(id) {
-            dispatch(deleteFighter(id));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

@@ -28,6 +28,13 @@ export function deleteFighter(id) {
     };
 }
 
+export function selectFighter(id) {
+    return {
+        type: "SELECT_FIGHTER",
+        payload: id
+    };
+}
+
 export function fetchFighters() {
 
     return dispatch => {

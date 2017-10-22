@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemButtonBar from './ItemButtonBar';
 
-const ItemRow = (props) => {
+const ItemGridRow = (props) => {
     return (
         <tr key={props.id}>
             <td>{props.fighter.firstName}</td>
@@ -14,4 +14,4 @@ const ItemRow = (props) => {
     )
 };
 
-export default ItemRow;
+export default ItemGridRow;
