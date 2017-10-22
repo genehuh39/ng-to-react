@@ -8,10 +8,8 @@ class App extends React.Component {
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(fetchFighters());
-
     }
     render() {
-
         const { isFetching, fighters } = this.props;
         return (
             <div>

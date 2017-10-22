@@ -14,10 +14,10 @@ function requestFighters() {
     };
 }
 
-export function addFighter(player) {
+export function addFighter(fighter) {
     return {
         type: "ADD_FIGHTER",
-        payload: player
+        payload: fighter
     };
 }
 
