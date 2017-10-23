@@ -17,6 +17,10 @@ const fighterReducer = (
                 fighters: action.fighters,
                 lastUpdated: action.received,
             });
+        case 'SELECT_FIGHTER':
+            return Object.assign({}, state, {
+                selectedFighter: action.payload
+            });
         default:
             return state;
     }
