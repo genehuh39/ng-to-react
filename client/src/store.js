@@ -6,9 +6,14 @@ import fighter from './reducers/fighterReducer';
 
 
 const loggerMiddleware = createLogger();
+const initialState = {
+    isFetching: false,
+    selectedFighter: null,
+    fighters: [],
+};
 
 export default createStore(
     fighter,
-    {},
+    initialState,
     applyMiddleware(loggerMiddleware, thunkMiddleware)
 );

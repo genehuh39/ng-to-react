@@ -1,9 +1,10 @@
 const fighterReducer = (
     state = {
         isFetching: false,
+        selectedFighter: null,
         fighters: [],
     },
-    action
+    action = {}
 ) => {
     switch (action.type) {
         case 'REQUEST_FIGHTERS':
