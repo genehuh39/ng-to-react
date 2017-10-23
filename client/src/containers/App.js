@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as FighterActionCreators from '../actions/fighterActions';
 import ItemGrid from '../components/ItemGrid';
 
-class App extends React.Component {
+class App extends Component {
     constructor(props) {
         super(props);
-        const { dispatch } = props;
+        const { dispatch } = this.props;
         this.boundActionCreators = bindActionCreators(FighterActionCreators, dispatch);
     }
     componentDidMount() {
