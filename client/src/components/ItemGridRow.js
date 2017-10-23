@@ -10,13 +10,10 @@ const ItemGridRow = ({ fighter, selectFighter, deleteFighter }) => {
             <td>{fighter.description}</td>
             <td />
             <td>
-                <ItemButtonBar
-                    id={fighter.id}
-                    selectFighter={selectFighter}
-                    deleteFighter={deleteFighter} />
+                <ItemButtonBar id={fighter.id} selectFighter={selectFighter} deleteFighter={deleteFighter} />
             </td>
         </tr>
-    )
+    );
 };
 
 export default ItemGridRow;
