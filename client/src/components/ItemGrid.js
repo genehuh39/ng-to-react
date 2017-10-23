@@ -8,7 +8,7 @@ const ItemGrid = (props) => {
             <table className="item-grid table table-striped table-bordered table-hover table-responsive">
                 <ItemGridHead />
                 <tbody>
-                    {props.fighters.map((fighter, index) => {
+                    {props.fighters.map(fighter => {
                         return <ItemGridRow key={fighter.id} fighter={fighter} {...props} />
                     })}
                 </tbody>
