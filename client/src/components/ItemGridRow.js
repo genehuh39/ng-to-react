@@ -1,19 +1,19 @@
 import React from 'react';
 import ItemButtonBar from './ItemButtonBar';
 
-const ItemGridRow = (props) => {
+const ItemGridRow = ({ fighter, selectFighter, deleteFighter }) => {
     return (
-        <tr key={props.fighter.id}>
-            <td>{props.fighter.firstName}</td>
-            <td>{props.fighter.lastName}</td>
-            <td>{props.fighter.weight}</td>
-            <td>{props.fighter.description}</td>
+        <tr key={fighter.id}>
+            <td>{fighter.firstName}</td>
+            <td>{fighter.lastName}</td>
+            <td>{fighter.weight}</td>
+            <td>{fighter.description}</td>
             <td />
             <td>
                 <ItemButtonBar
-                    id={props.fighter.id}
-                    selectFighter={props.selectFighter}
-                    deleteFighter={props.deleteFighter} />
+                    id={fighter.id}
+                    selectFighter={selectFighter}
+                    deleteFighter={deleteFighter} />
             </td>
         </tr>
     )

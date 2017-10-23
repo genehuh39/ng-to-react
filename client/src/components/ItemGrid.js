@@ -2,7 +2,7 @@ import React from 'react';
 import ItemGridHead from './ItemGridHead';
 import ItemGridRow from './ItemGridRow';
 
-const ItemGrid = (props) => {
+const ItemGrid = props => {
     return (
         <div>
             <table className="item-grid table table-striped table-bordered table-hover table-responsive">
