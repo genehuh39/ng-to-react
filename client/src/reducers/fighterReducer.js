@@ -21,6 +21,8 @@ const fighterReducer = (
             return Object.assign({}, state, {
                 selectedFighter: action.payload
             });
+        case 'DELETE_FIGHTER':
+            return Object.assign({}, state, { fighters: state.fighters.filter((fighter) => fighter.id !== action.payload) });
         default:
             return state;
     }
