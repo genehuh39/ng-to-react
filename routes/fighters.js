@@ -1,95 +1,34 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
+const { mongoose } = require('../db/mongoose');
+const { Fighter } = require('../model/fighter');
+const contents = fs.readFileSync('./data/fighters.json');
+const JsonData = JSON.parse(contents);
+
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    // Comment out this line:
-    //res.send('respond with a resource');
-
-    // And insert something like this instead:
-    res.json([
-        {
-            "id": 1,
-            "firstName": "Jon",
-            "lastName": "Jones",
-            "weight": "205",
-            "height": 76,
-            "description": "One of the best pound-for-pound fighters in the business",
-            "groundGame": 8,
-            "rangeStriking": 8,
-            "boxing": 5,
-            "clinch": 9,
-            "wrestling": 9
-        },
-        {
-            "id": 2,
-            "firstName": "Conor",
-            "lastName": "McGregor",
-            "weight": "155",
-            "height": 69,
-            "description": "The biggest star in the business",
-            "groundGame": 5,
-            "rangeStriking": 9,
-            "boxing": 8,
-            "clinch": 4,
-            "wrestling": 4
-        },
-        {
-            "id": 3,
-            "firstName": "Tyron",
-            "lastName": "Woodley",
-            "weight": "170",
-            "height": 69,
-            "description": "Strong wrestler with athleticism and power",
-            "groundGame": 6,
-            "rangeStriking": 5,
-            "boxing": 7,
-            "clinch": 8,
-            "wrestling": 8
-        },
-        {
-            "id": 4,
-            "firstName": "Khabib",
-            "lastName": "Nurmagomedov",
-            "weight": "155",
-            "height": 70,
-            "age": 28,
-            "description": "The best wrestler in MMA",
-            "groundGame": 8,
-            "rangeStriking": 4,
-            "boxing": 5,
-            "clinch": 10,
-            "wrestling": 10
-        },
-        {
-            "id": 5,
-            "firstName": "Tony",
-            "lastName": "Ferguson",
-            "weight": "155",
-            "height": 71,
-            "age": 33,
-            "description": "Unorthodox fighter with unlimited stamina and unbreakable will",
-            "groundGame": 8,
-            "rangeStriking": 8,
-            "boxing": 6,
-            "clinch": 8,
-            "wrestling": 8
-        },
-        {
-            "id": 6,
-            "firstName": "Demetrious",
-            "lastName": "Johnson",
-            "weight": "125",
-            "height": 63,
-            "age": 31,
-            "description": "The most complete fighter in the game.",
-            "groundGame": 9,
-            "rangeStriking": 8,
-            "boxing": 7,
-            "clinch": 9,
-            "wrestling": 9
+    Fighter.find({ active: true }).then((fighters) => {
+        // if there is data to return, return it
+        if (fighters.length > 0) {
+            res.json(fighters);
+        } else {
+            // if there are no records, load some records
+            Fighter.insertMany(JsonData, (err, docs) => {
+                res.json(docs);
+            });
         }
-    ]);
+    });
 });
+
+// router.delete('/:fighterId', function(req, res, next) {
+//    var filteredData = JsonData.filter(function(item) {
+//       return item.id !==  parseInt(req.params.fighterId);
+//    });
+//    console.log(filteredData.length)
+//    res.json(filteredData);
+// });
 
 module.exports = router;

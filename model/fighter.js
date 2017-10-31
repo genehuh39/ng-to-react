@@ -48,6 +48,10 @@ var Fighter = mongoose.model('Fighter', {
     wrestling: {
         type: Number,
         required: true
+    },
+    active: {
+        type: Boolean,
+        required: true
     }
 });
 
