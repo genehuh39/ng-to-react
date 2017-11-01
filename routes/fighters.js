@@ -9,7 +9,7 @@ const JsonData = JSON.parse(contents);
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
     Fighter.find({ active: true }).then((fighters) => {
         // if there is data to return, return it
         if (fighters.length > 0) {
@@ -22,6 +22,17 @@ router.get('/', function(req, res, next) {
         }
     });
 });
+
+router.post('/', (req, res) => {
+    const fighter = new Fighter(req.body.data);
+    fighter.save().then(doc => {
+        res.send(doc)
+    }, err => {
+       res.status(400).send(err);
+    });
+});
+
+
 
 // router.delete('/:fighterId', function(req, res, next) {
 //    var filteredData = JsonData.filter(function(item) {
