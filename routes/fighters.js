@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+var { ObjectID } = require('mongodb');
 const { mongoose } = require('../db/mongoose');
 const { Fighter } = require('../model/fighter');
 const contents = fs.readFileSync('./data/fighters.json');
@@ -32,6 +33,22 @@ router.post('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+
+    if (!ObjectID.isValid(id)) {
+        return res.status(404).send();
+    }
+
+    Fighter.findById(id).then((fighter) => {
+        if (!fighter) {
+            return res.status(404).send();
+        }
+        res.send({fighter});
+    }).catch((e) => {
+        res.status(400).send();
+    });
+});
 
 
 // router.delete('/:fighterId', function(req, res, next) {
