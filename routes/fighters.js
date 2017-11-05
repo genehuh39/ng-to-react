@@ -33,6 +33,24 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+
+    if (!ObjectID.isValid(id)) {
+        return res.status(404).send();
+    }
+
+    Fighter.findByIdAndUpdate(id, res.body.data, {new: true}).then((fighter) => {
+        if (!fighter) {
+            return res.status(404).send();
+        }
+
+        res.send({ fighter });
+    }).catch((e) => {
+        res.status(400).send();
+    })
+});
+
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
 
