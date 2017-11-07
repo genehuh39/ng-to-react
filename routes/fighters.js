@@ -68,13 +68,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-
-// router.delete('/:fighterId', function(req, res, next) {
-//    var filteredData = JsonData.filter(function(item) {
-//       return item.id !==  parseInt(req.params.fighterId);
-//    });
-//    console.log(filteredData.length)
-//    res.json(filteredData);
-// });
-
 module.exports = router;
