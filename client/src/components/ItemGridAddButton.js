@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import FighterForm from './FighterForm';
 
-const ItemGridAddButton = () => {
-    return (
-        <tr>
-            <td colSpan="6">
-                <button type="button" className="btn btn-primary">
+class ItemGridAddButton extends Component {
+    constructor() {
+        super();
+        this.state = { showModal: false };
+    }
+    render() {
+        return (
+            <div>
+                <button type="button" className="btn btn-primary" onClick={() => this.setState({ showModal: true })}>
                     add new fighter
                 </button>
-            </td>
-        </tr>
-    );
+                <FighterForm show={this.state.showModal} />
+            </div>
+        );
+    }
 };
 
 export default ItemGridAddButton;

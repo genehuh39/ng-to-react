@@ -1,10 +1,8 @@
 import React from 'react';
-import ItemGridAddButton from './ItemGridAddButton';
 
 const ItemGridHead = () => {
     return (
         <thead>
-            <ItemGridAddButton />
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>

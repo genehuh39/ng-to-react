@@ -1,10 +1,12 @@
 import React from 'react';
 import ItemGridHead from './ItemGridHead';
 import ItemGridRow from './ItemGridRow';
+import ItemGridAddButton from './ItemGridAddButton';
 
 const ItemGrid = props => {
     return (
-        <div>
+        <div className="container">
+            <ItemGridAddButton />
             <table className="item-grid table table-striped table-bordered table-hover table-responsive">
                 <ItemGridHead />
                 <tbody>
