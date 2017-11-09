@@ -12,7 +12,7 @@ class ItemGridAddButton extends Component {
                 <button type="button" className="btn btn-primary" onClick={() => this.setState({ showModal: true })}>
                     add new fighter
                 </button>
-                <FighterForm show={this.state.showModal} />
+                <FighterForm show={this.state.showModal} hide={() => this.setState({ showModal: false })}  />
             </div>
         );
     }
