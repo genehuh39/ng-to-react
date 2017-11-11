@@ -29,3 +29,7 @@ const fighterReducer = (
 };
 
 export default fighterReducer;
+
+export const getFighterById = (state) => {
+  return state.fighters.filter(fighter => fighter.id === state.selectedFighter)[0];
+};
