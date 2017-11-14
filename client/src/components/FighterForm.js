@@ -13,7 +13,14 @@ class FighterForm extends Component {
                         <Modal.Title>Fighter Form</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Form goes here
+                        <div className="form-group">
+                            <label>First Name</label>
+                            <input type="text" value="" className="form-control" />
+                        </div>
+                        <div className="form-group">
+                            <label>Last Name</label>
+                            <input type="text" value="" className="form-control" />
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.props.hide}>Close</Button>
