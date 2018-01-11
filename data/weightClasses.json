@@ -1,0 +1,47 @@
+[
+  {
+    "className": "Heavyweight",
+    "classCode": "heavy",
+    "weight": 265
+  },
+  {
+    "className": "Light Heavyweight",
+    "classCode": "lightheavy",
+    "weight": 205
+  },
+  {
+    "className": "Middleweight",
+    "classCode": "middle",
+    "weight": 185
+  },
+  {
+    "className": "Welterweight",
+    "classCode": "welter",
+    "weight": 170
+  },
+  {
+    "className": "Lightweight",
+    "classCode": "light",
+    "weight": 155
+  },
+  {
+    "className": "Featherweight",
+    "classCode": "feather",
+    "weight": 145
+  },
+  {
+    "className": "Bantamweight",
+    "classCode": "bantam",
+    "weight": 135
+  },
+  {
+    "className": "Flyweight",
+    "classCode": "fly",
+    "weight": 125
+  },
+  {
+    "className": "Strawweight",
+    "classCode": "straw",
+    "weight": 115
+  }
+]
