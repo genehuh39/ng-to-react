@@ -19,4 +19,4 @@ var WeightClass = mongoose.model('WeightClass', {
     }
 });
 
-module exports  = { WeightClass }
+module.exports  = { WeightClass }
